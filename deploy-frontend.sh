@@ -21,4 +21,4 @@ ng build --environment prod
 #
 
 pm2 stop trWebBeta
-pm2 start ./serve-transcriba-web-beta.sh --name trWebBeta
+pm2 start ../transcriba-deployment/serve-transcriba-web-beta.sh --name trWebBeta
