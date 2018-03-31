@@ -7,6 +7,7 @@ cd ../transcriba-web
 # 
 
 git checkout 2.0
+git pull
 
 #
 # Build bundled application
@@ -20,4 +21,4 @@ ng build --environment prod
 #
 
 pm2 stop trWebBeta
-pm2 ./serve-transcriba-web-beta.sh start --name trWebBeta
+pm2 start ./serve-transcriba-web-beta.sh --name trWebBeta
