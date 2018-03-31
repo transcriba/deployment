@@ -19,4 +19,5 @@ ng build --environment prod
 # Restart Webserver
 #
 
-pm2 ./serve-transcriba-web-beta.sh restart
+pm2 stop trWebBeta
+pm2 ./serve-transcriba-web-beta.sh start --name trWebBeta
