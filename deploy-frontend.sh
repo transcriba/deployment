@@ -2,14 +2,23 @@
 
 cd ../transcriba-web
 
+function echoHeading {
+  echo " "
+  echo "#################################";
+  echo "$1";
+  echo "#################################";
+  echo " "
+}
 
-echo "Checkout desired deployment branch";
+
+echoHeading "Checkout desired deployment branch";
 git checkout 2.0
 git pull
 
-echo "Build bundled application";
+echoHeading "Build bundled application";
 npm install
-ng build --environment prod
+ng build --prod --build-optimizer
 
-echo "Restart Webserver";
-pm2 startOrRestart ../transcriba-deployment/serve-transcriba-web-beta.sh --name trWebBeta
+echoHeading "Restart Webserver";
+pm2 delete trWebBeta
+pm2 start ../transcriba-deployment/serve-transcriba-web-beta.sh --name trWebBeta
